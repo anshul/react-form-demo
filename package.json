@@ -14,7 +14,8 @@
     "react-scripts": "1.0.10",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
-    "styled-components": "^2.1.1"
+    "styled-components": "^2.1.1",
+    "tcomb-form": "^0.9.17"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
