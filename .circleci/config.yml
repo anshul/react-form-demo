@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: kkarczmarczyk/node-yarn:7.6
+    working_directory: /home/ubuntu/react-project
+    steps:
+      - checkout
+      - restore_cache:
+          key: react-project-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install deps
+          command: |
+            yarn
+      - save_cache:
+          key: react-project-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - /home/ubuntu/.cache
+            - /root/.cache
+            - ~/.cache
+      - run:
+          name: Lint
+          command: yarn lint
+      - run:
+          name: Test
+          command: yarn test
+
